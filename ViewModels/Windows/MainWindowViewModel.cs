@@ -11,9 +11,11 @@ namespace UiDesktopApp2.ViewModels.Windows
 {
     public partial class MainWindowViewModel : ObservableObject
     {
+        /* 设置应用标题 */
         [ObservableProperty]
         private string _applicationTitle = "WPF UI - UiDesktopApp2";
 
+        /* 左侧菜单栏设置 */
         [ObservableProperty]
         private ObservableCollection<object> _menuItems = new()
         {
@@ -28,6 +30,12 @@ namespace UiDesktopApp2.ViewModels.Windows
                 Content = "Data",
                 Icon = new SymbolIcon { Symbol = SymbolRegular.DataHistogram24 },
                 TargetPageType = typeof(Views.Pages.DataPage)
+            },
+            new NavigationViewItem()
+            {
+                Content = "Example",
+                Icon = new SymbolIcon {Symbol = SymbolRegular.AccessibilityCheckmark28},
+                TargetPageType = typeof(Views.Pages.ExamplePage)
             }
         };
 
@@ -47,5 +55,8 @@ namespace UiDesktopApp2.ViewModels.Windows
         {
             new MenuItem { Header = "Home", Tag = "tray_home" }
         };
+
+
+        
     }
 }
