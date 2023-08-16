@@ -56,7 +56,5 @@ namespace UiDesktopApp2.ViewModels.Windows
             new MenuItem { Header = "Home", Tag = "tray_home" }
         };
 
-
-        
     }
 }

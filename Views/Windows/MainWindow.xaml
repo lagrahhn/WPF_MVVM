@@ -5,6 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:UiDesktopApp2.Views.Windows"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:tb="http://www.hardcodet.net/taskbar"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     Title="{Binding ViewModel.ApplicationTitle, Mode=OneWay}"
     Width="1100"
@@ -15,16 +16,30 @@
     d:DesignWidth="800"
     ui:Design.Background="{DynamicResource ApplicationBackgroundBrush}"
     ui:Design.Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+    Closing="Window_Closing"
     ExtendsContentIntoTitleBar="True"
     Foreground="{DynamicResource TextFillColorPrimaryBrush}"
     WindowBackdropType="Mica"
     WindowCornerPreference="Round"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
+
+    <Window.Resources>
+        <!--  TrayMenu  -->
+        <ContextMenu x:Key="TrayMenu">
+            <MenuItem Click="Exit_Click" Header="退出" />
+            <MenuItem Click="Help_Click" Header="帮助" />
+            <Separator />
+        </ContextMenu>
+    </Window.Resources>
+
+
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
+            <RowDefinition Height="0" />
         </Grid.RowDefinitions>
         <ui:NavigationView
             x:Name="NavigationView"
@@ -61,5 +76,16 @@
                 <ui:ImageIcon Source="pack://application:,,,/Assets/wpfui-icon-256.png" />
             </ui:TitleBar.Icon>
         </ui:TitleBar>
+
+        <tb:TaskbarIcon
+            x:Name="myNotifyIcon"
+            Grid.ColumnSpan="2"
+            ContextMenu="{StaticResource TrayMenu}"
+            IconSource="/Assets/image.ico"
+            MenuActivation="LeftOrRightClick"
+            PopupActivation="DoubleClick"
+            ToolTipText="应用程序提示"
+            TrayMouseDoubleClick="myNotifyIcon_TrayMouseDoubleClick"
+            Visibility="Visible" />
     </Grid>
 </ui:FluentWindow>
