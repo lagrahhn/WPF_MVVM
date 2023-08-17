@@ -31,7 +31,21 @@
             <MenuItem Click="Help_Click" Header="帮助" />
             <Separator />
         </ContextMenu>
+
+        <RoutedUICommand x:Key="CloseCommand" Text="Button Click" />
+
     </Window.Resources>
+
+    <Window.InputBindings>
+        <KeyBinding Command="{StaticResource CloseCommand}" Gesture="Ctrl+Q" />
+    </Window.InputBindings>
+
+    <Window.CommandBindings>
+        <CommandBinding
+            CanExecute="CommandBinding_CanExecute"
+            Command="{StaticResource CloseCommand}"
+            Executed="CommandBinding_Executed" />
+    </Window.CommandBindings>
 
 
 
