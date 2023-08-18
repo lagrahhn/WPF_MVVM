@@ -65,7 +65,8 @@ namespace UiDesktopApp2.Views.Windows
 
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            /*Close();*/
+            Application.Current.Shutdown();
         }
 
         private void Help_Click(object sender, RoutedEventArgs e)
