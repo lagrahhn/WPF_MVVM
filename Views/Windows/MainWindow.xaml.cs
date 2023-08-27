@@ -37,14 +37,9 @@ namespace UiDesktopApp2.Views.Windows
         }
 
 
-
-
-
-
-
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            System.Windows.MessageBoxResult result = System.Windows.MessageBox.Show("您想要关闭应用程序还是仅隐藏到托盘？", "关闭确认", System.Windows.MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
+            System.Windows.MessageBoxResult result = System.Windows.MessageBox.Show("关闭应用程序还是仅隐藏到托盘？", "关闭确认", System.Windows.MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
             if (result == System.Windows.MessageBoxResult.Yes)
             {
                 // 执行应用程序关闭操作

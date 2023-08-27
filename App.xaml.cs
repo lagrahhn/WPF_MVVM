@@ -48,6 +48,7 @@ namespace UiDesktopApp2
                 services.AddSingleton<DataViewModel>();
                 services.AddSingleton<SettingsPage>();
                 services.AddSingleton<SettingsViewModel>();
+ 
             }).Build();
 
         /// <summary>
